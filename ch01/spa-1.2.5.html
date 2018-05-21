@@ -35,7 +35,7 @@
   <script type="text/javascript" src=
     "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
   </script>
-  
+
   <script type="text/javascript">
   /*jslint         browser : true, continue : true,
     devel  : true, indent  : 2,    maxerr   : 50,
@@ -49,27 +49,26 @@
   // Provides chat slider capability
   //
   var spa = (function ( $ ) {
-    // Module scope variables
+    // 定数の設定
     var
-      // Set constants
-      configMap = {
-        extended_height  : 434,
-        extended_title   : 'Click to retract',
-        retracted_height : 16,
-        retracted_title  : 'Click to extend',
-        template_html    : '<div class="spa-slider"><\/div>'
-      },
-      
-      // Declare all other module scope variables
+    configMap = {
+      extended_height  : 434,
+      extended_title   : 'Click to retract',
+      retracted_height : 16,
+      retracted_title  : 'Click to extend',
+      template_html    : '<div class="spa-slider"><\/div>'
+    },
+
+      // module内で使用される変数の宣言
       $chatSlider,
       toggleSlider, onClickSlider, initModule;
 
-    // DOM method /toggleSlider/
-    // alternates slider height
-    //
+    /*
+     * DOM操作に関わる関数
+     */
     toggleSlider = function () {
       var
-        slider_height = $chatSlider.height();
+      slider_height = $chatSlider.height();
 
       // extend slider if fully retracted
       if ( slider_height === configMap.retracted_height ) {
@@ -90,25 +89,26 @@
       return false;
     };
 
-    // Event handler /onClickSlider/
-    // receives click event and calls toggleSlider
-    //
+
+    /*
+     * イベントハンドラ
+     */
     onClickSlider = function ( event ) {
       toggleSlider();
       return false;
     };
 
-    // Public method /initModule/
-    // sets initial state and provides feature
-    //
+    /*
+     * 外部に公開するmethod
+     * Spaの初期化を行う
+     */
     initModule = function ( $container ) {
-    
-      // render HTML
+
+      // htmlをrenderingする
       $container.html( configMap.template_html );
       $chatSlider = $container.find( '.spa-slider' );
 
-      // initialize slider height and title
-      // bind the user click event to the event handler
+      // chatSliderにイベントをバインドする
       $chatSlider
         .attr( 'title', configMap.retracted_title )
         .click( onClickSlider );
@@ -120,11 +120,11 @@
 
   }( jQuery ));
 
-  // Start spa once DOM is ready
-  //
-  jQuery(document).ready(
-    function () { spa.initModule( jQuery('#spa') ); } 
-  );
+// Start spa once DOM is ready
+//
+jQuery(document).ready(
+  function () { spa.initModule( jQuery('#spa') ); }
+);
   </script>
 </head>
 
