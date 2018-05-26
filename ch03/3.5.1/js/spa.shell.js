@@ -71,6 +71,8 @@ spa.shell = (function () {
       px_chat_ht = jqueryMap.$chat.height(),
       is_open    = px_chat_ht === configMap.chat_extend_height,
       is_closed  = px_chat_ht === configMap.chat_retract_height,
+
+      /** is_openがfalse, is_closedがfalseの時、slidingしているということ */
       is_sliding = ! is_open && ! is_closed;
 
     // avoid race condition

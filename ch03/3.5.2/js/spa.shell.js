@@ -35,6 +35,8 @@ spa.shell = (function () {
       chat_extended_title  : 'Click to retract',
       chat_retracted_title : 'Click to extend'
     },
+
+    /** ここで状態管理している */
     stateMap  = {
       $container        : null,
       is_chat_retracted : true
@@ -49,6 +51,8 @@ spa.shell = (function () {
 
   //--------------------- BEGIN DOM METHODS --------------------
   // Begin DOM method /setJqueryMap/
+
+  /** ここでjQuery objectをキャッシュしている */
   setJqueryMap = function () {
     var $container = stateMap.$container;
 

@@ -19,6 +19,7 @@ var spa = (function () {
       + '</h1>'
     );
   };
-  
+
   return { initModule: initModule };
 }());
+
